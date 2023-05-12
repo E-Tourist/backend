@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "@common/*": [
+        "common/*"
+      ],
+      "@controllers/*": [
+        "controllers/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
+      "@tests": [
+        "../tests"
+      ]
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "./dist/src",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
