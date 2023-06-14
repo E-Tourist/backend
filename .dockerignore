@@ -1,0 +1,13 @@
+.git
+.gitignore
+.npmrc
+docker-compose.yml
+build.sh
+*.md
+docker
+storage
+
+node_modules
+.env
+**/*.log
+docs

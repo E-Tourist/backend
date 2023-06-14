@@ -1,0 +1,35 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "v1.0.0",
+    "title": "E-Tourist",
+    "description": "API to E-Tourist backend services",
+    "termsOfService": "",
+    "contact": {},
+    "license": {
+      "name": "MIT Licensed"
+    }
+  },
+  "externalDocs": {
+    "description": "See external documentation on E-Tourist github",
+    "url": "https://github.com/E-Tourist/backend"
+  },
+  "servers": [
+    {
+      "url": "/api",
+      "description": "API endpoints"
+    }
+  ],
+  "tags": [
+  ],
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "bearer-token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

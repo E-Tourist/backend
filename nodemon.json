@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "docker",
+        "README.md"
+    ]
+}

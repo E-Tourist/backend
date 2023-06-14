@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  description: 'Specyfikacja API REST - API Template'
+  version: 1.0.0
+  title: OpenAPI 3 - API Template
+  termsOfService: ''
+  contact: {}
+servers:
+  - url: /api/v1
+    description: Dane testowe
+  - url: /api/v2
+    description: Dane prawdziwe
+tags:
+  - name: auth
+    description: Operacje związane z autoryzacją
+paths:
+  /auth:
+    post:
+      summary: Autoryzacja do API
+      description: >-
+        Zwrócony token przychodzi razem z datą wygaśnięcia.
+
+        Klient powinien obsłużyć po swojej stronie funkcjonalność zapamiętywania tokena i wygenerowania nowego przed wygaśnięciem.
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizationRequest'
+        description: Dane klienta
+      tags:
+        - auth
+      responses:
+        '200':
+          $ref: '#/components/responses/AuthorizationSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/AuthorizationFailed'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AuthorizationRequest:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      type: object
+    AuthorizationSuccess:
+      type: object
+      properties:
+        token:
+          type: string
+        expires:
+          type: string
+          format: date-time
+        user:
+          type: string
+    InvalidCredentials:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid credentials
+        errors:
+          type: object
+  responses:
+    AuthorizationFailed:
+      description: Błędna autoryzacja
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/InvalidCredentials'
+    AuthorizationSuccess:
+      description: Poprawna autoryzacja
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AuthorizationSuccess'
+    BadRequest:
+      description: Złe żądanie. Może wynikać z niepoprawnej struktury JSON w ciele żądania

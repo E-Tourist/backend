@@ -1,0 +1,13 @@
+{
+  "options": {
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
+  },
+  "migrationsDir": "src/migrations",
+  "migrationsCollection": "migrations_changelog",
+  "useEnv": true,
+  "environment": {
+    "uriVar": "MONGO_DB_CONN_STRING",
+    "databaseVar": "MONGO_DB_NAME"
+  }
+}
