@@ -1,4 +1,4 @@
-[# Description of the module
+# Description of the module
 
 This is backend E-Tourist service written in NodeJS using Express
 
