@@ -44,4 +44,3 @@ Scripts are written for Windows so there may be some changes in syntax.
 # API extract
 
 Open API Documentation under: http://localhost:8081/api
-]()

@@ -7,5 +7,5 @@ if (!process.env.PORT) {
 import { commonControllers, apis } from '@controllers/controllers';
 import { App } from './app';
 
-const app = new App(commonControllers, apis, 8081);
+const app = new App(commonControllers, apis, parseInt(process.env.PORT, 10));
 app.listen();

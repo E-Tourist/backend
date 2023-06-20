@@ -13,10 +13,9 @@ import errorHandler from 'errorhandler';
 import { CommonController, Api } from '@controllers/controllers';
 import { ApiController, APIRouter } from '@interfaces/controllers/api.interface';
 import { ViewAuthType } from '@interfaces/controllers/view.interface';
-import { basicAuthMiddleware } from '@common/middlewares/basic-auth-middleware';
 import { MongoConnector } from '@common/db/mongo-connector';
 import { AuthServiceProvider } from '@common/services/auth-service-provider';
-
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -64,7 +63,6 @@ export class App {
 
                 this.app.use(
                     routerPath,
-                    basicAuthMiddleware()
                 );
             }
             this.app.use(router);
@@ -158,7 +156,7 @@ export class App {
     }
 
     private initMiddlewares(): void {
-        // override
+        this.app.use(cors());
         this.app.use(methodOverride('_method')); // In query
         this.app.use(methodOverride('X-HTTP-Method')); // Microsoft
         this.app.use(methodOverride('X-HTTP-Method-Override')); // Google/GData

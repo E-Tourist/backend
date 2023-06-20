@@ -75,7 +75,7 @@ export function getMongoDbName(): string {
 }
 export function getAppPort(): number{
     const value = Number(process.env.PORT);
-    if (!value || !isInteger(value)) return 3000;
+    if (!value || !isInteger(value)) return 8081;
     return value;
 }
 
