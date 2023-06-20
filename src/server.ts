@@ -4,7 +4,7 @@ if (!process.env.PORT) {
     process.env.PORT = '8081';
 }
 
-import { commonControllers, apis } from '@controllers/controllers';
+import { commonControllers, apis } from './controllers';
 import { App } from './app';
 
 const app = new App(commonControllers, apis, parseInt(process.env.PORT, 10));

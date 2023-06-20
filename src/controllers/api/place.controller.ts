@@ -1,5 +1,5 @@
 import { IPlaceController } from '@interfaces/controllers/api/place.interface.controller';
-import { IPlaceService } from '@interfaces/services/place-interface-service';
+import { IPlaceService } from '@interfaces/services/place.interface.service';
 import { APIRouter, AuthType } from '@interfaces/controllers/api.interface';
 import { IPlaceResponseDTO } from '@interfaces/dto/responses/places/search-places.interface.schema';
 import { Request, Response } from 'express';

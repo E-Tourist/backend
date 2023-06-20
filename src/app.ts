@@ -10,7 +10,7 @@ import * as configProvider from '@common/config-provider';
 import { NotFoundController } from '@controllers/common/notfound/notfound-controller';
 import path from 'path';
 import errorHandler from 'errorhandler';
-import { CommonController, Api } from '@controllers/controllers';
+import { CommonController, Api } from './controllers';
 import { ApiController, APIRouter } from '@interfaces/controllers/api.interface';
 import { ViewAuthType } from '@interfaces/controllers/view.interface';
 import { MongoConnector } from '@common/db/mongo-connector';
