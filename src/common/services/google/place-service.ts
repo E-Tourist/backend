@@ -1,14 +1,14 @@
-import { IPlaceService } from '@interfaces/services/place.interface.service';
+import { IGooglePlaceService } from '@interfaces/services/google/place.interface.service';
 import axios, { AxiosResponse } from 'axios';
 import pino from 'pino';
-import { IPlaceResponseDTO } from '@interfaces/dto/responses/places/search-places.interface.schema';
+import { IGooglePlaceResponseDTO } from '@interfaces/dto/responses/google/search-places.interface.schema';
 
 const logger = pino();
 
-export class GooglePlaceService implements IPlaceService {
+export class GooglePlaceService implements IGooglePlaceService {
     private apiUrl: string = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 
-    async searchPlaces(query: string): Promise<Array<IPlaceResponseDTO>> {
+    async searchPlaces(query: string): Promise<Array<IGooglePlaceResponseDTO>> {
         try {
             const response: AxiosResponse = await axios.get(this.apiUrl, {
                 params: {
@@ -23,7 +23,7 @@ export class GooglePlaceService implements IPlaceService {
                 throw new Error(`Error occurred during place search: ${response.data.status}`);
             }
 
-            return response.data.results.map((result: any): IPlaceResponseDTO => ({
+            return response.data.results.map((result: any): IGooglePlaceResponseDTO => ({
                 name: result.name,
                 geometry: result.geometry,
                 rating: result.rating,

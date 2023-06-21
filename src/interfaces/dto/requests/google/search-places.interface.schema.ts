@@ -10,6 +10,6 @@
  *                  type: string
  *              description: Query string to search for places
  */
-export interface ISearchPlacesRequestDTO {
+export interface IGooglePlacesRequestDTO {
     query: string;
 }

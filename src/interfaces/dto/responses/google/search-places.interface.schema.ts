@@ -2,7 +2,7 @@
  * @openapi
  * components:
  *   schemas:
- *     IPlaceResponseDTO:
+ *     IGooglePlaceResponseDTO:
  *       type: object
  *       properties:
  *         name:
@@ -41,7 +41,7 @@
  *           type: string
  *           nullable: true
  */
-export interface IPlaceResponseDTO {
+export interface IGooglePlaceResponseDTO {
     name: string;
     geometry: {
         location: {
