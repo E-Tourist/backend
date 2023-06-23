@@ -1,23 +1,17 @@
-// test-controller.ts
-import { Request, Response, Router } from 'express';
-import { ITestController } from '@interfaces/controllers/api/test.interface.controller';
-import { AuthType, APIRouter } from '@interfaces/controllers/api.interface';
+import { Request, Response } from 'express';
+import { ITestController } from '@interfaces/controllers/test.interface.controller';
+import { AuthType, APIRouter } from '@interfaces/controllers/common/api.interface';
 
 export class TestController extends APIRouter implements ITestController {
     authType = AuthType.KEYCLOAK_TOKEN;
-    path = '/test';
-    router: Router;
 
     constructor() {
-        super();
-        this.router = Router();
-        this.initializeRoutes();
+        super('/test');
     }
 
     initializeRoutes(): void {
         this.createRoute('get', this.path, this.test.bind(this));
     }
-
 
     async test(req: Request, res: Response): Promise<void> {
         res.status(200).send({

@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import { IMapRoute } from '@interfaces/models/map-route.interface';
 
 export interface IUser extends Document {
     externalId: string;
@@ -6,9 +7,11 @@ export interface IUser extends Document {
     username?: string;
     firstName: string;
     lastName: string;
+    avatarUrl?: string;
     bio?: string;
     hasNewsletterSubscription: boolean;
     createdDateTime: Date;
-    totalDistanceTraveled: number;
-    friends: Array<string>;
+    totalDistanceTraveledInKm: number;
+    friends: Array<IUser['_id']>;
+    routes: Array<IMapRoute['_id']>;
 }

@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { ViewController } from '@interfaces/controllers/view.interface';
+import { ViewController } from '@interfaces/controllers/common/view.interface';
 
 export class StartController extends ViewController {
   constructor() {

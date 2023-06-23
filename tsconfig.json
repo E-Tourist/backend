@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+      "experimentalDecorators": true
+  },
   "extends": "./tsconfig-common.json",
   "exclude": [
     "views",

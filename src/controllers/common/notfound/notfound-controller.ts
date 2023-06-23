@@ -1,4 +1,4 @@
-import { Controller } from '@interfaces/controllers/controller.interface';
+import { Controller } from '@interfaces/controllers/common/controller.interface';
 import { Response, Request } from 'express';
 
 export class NotFoundController extends Controller {

@@ -1,9 +1,8 @@
-import { ViewAuthType, ViewController } from '@interfaces/controllers/view.interface';
+import { ViewAuthType, ViewController } from '@interfaces/controllers/common/view.interface';
 import * as swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../../../base-swagger.json';
 import { swaggerDocumentFiller } from '@common/middlewares/swagger-document-filler';
-import { SwaggerGenerator } from '@common/services/swagger-generator';
-
+import { SwaggerGenerator } from '@common/services/common/swagger-generator';
 
 export class DocsController extends ViewController {
     authType: ViewAuthType = ViewAuthType.NONE;

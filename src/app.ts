@@ -11,10 +11,10 @@ import { NotFoundController } from '@controllers/common/notfound/notfound-contro
 import path from 'path';
 import errorHandler from 'errorhandler';
 import { CommonController, Api } from './controllers';
-import { ApiController, APIRouter } from '@interfaces/controllers/api.interface';
-import { ViewAuthType } from '@interfaces/controllers/view.interface';
-import { MongoConnector } from '@common/db/mongo-connector';
-import { AuthServiceProvider } from '@common/services/auth-service-provider';
+import { ApiController, APIRouter } from '@interfaces/controllers/common/api.interface';
+import { ViewAuthType } from '@interfaces/controllers/common/view.interface';
+import { MongoConnector } from '@common/config/database/mongo-connector';
+import { AuthServiceProvider } from '@common/services/common/auth-service-provider';
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -27,21 +27,21 @@ export class App {
         public controllers: Array<CommonController>,
         public apis: Array<Api>,
         public port: number) {
-            this.app = express();
-            this.app.logger = pino();
+        this.app = express();
+        this.app.logger = pino();
 
-            this.initLogger();
-            this.initializeRenderEngine();
-            this.initSecurity();
-            this.initMiddlewares();
-            this.initApiControllers();
-            this.initCommonControllers();
-            this.initializeNotFound();
-            this.initMongoClient();
+        this.initLogger();
+        this.initializeRenderEngine();
+        this.initSecurity();
+        this.initMiddlewares();
+        this.initApiControllers();
+        this.initCommonControllers();
+        this.initializeNotFound();
+        this.initMongoClient();
 
-            process.once('SIGTERM', this.exitHandler.bind(this));
-            process.once('SIGINT', this.exitHandler.bind(this));
-        }
+        process.once('SIGTERM', this.exitHandler.bind(this));
+        process.once('SIGINT', this.exitHandler.bind(this));
+    }
 
     listen(): void {
         this.server = http.createServer(this.app);

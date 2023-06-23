@@ -1,6 +1,6 @@
-import { SwaggerFileProvider } from '@common/services/swagger-file-provider';
+import { SwaggerFileProvider } from '@common/services/common/swagger-file-provider';
 import { ISwaggerFileRequestDTO } from '@interfaces/dto/requests/swagger-file-request.interface';
-import { ViewAuthType, ViewController } from '@interfaces/controllers/view.interface';
+import { ViewAuthType, ViewController } from '@interfaces/controllers/common/view.interface';
 import { IFileProvider } from '@interfaces/file-provider.interface';
 import { Request, Response } from 'express';
 

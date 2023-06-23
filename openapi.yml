@@ -6,9 +6,9 @@ info:
   termsOfService: ''
   contact: {}
 servers:
-  - url: /api/v1
+  - url: /interfaces/v1
     description: Dane testowe
-  - url: /api/v2
+  - url: /interfaces/v2
     description: Dane prawdziwe
 tags:
   - name: auth

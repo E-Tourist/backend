@@ -1,11 +1,11 @@
-import { ViewAuthType, ViewController } from '@interfaces/controllers/view.interface';
+import { ViewAuthType, ViewController } from '@interfaces/controllers/common/view.interface';
 import { Response, Request } from 'express';
 
 export class ApiController extends ViewController {
     authType: ViewAuthType = ViewAuthType.NONE;
 
     constructor() {
-        super('/api');
+        super('/interfaces');
     }
     initializeRoutes(): void {
         this.router.get(this.path, this.api);
@@ -15,7 +15,7 @@ export class ApiController extends ViewController {
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Content-Security-Policy', 'script-src blob:');
         res.header('Content-Security-Policy', 'worker-src blob:');
-        return res.set('Cache-Control: no-store').sendFile('api.html', {
+        return res.set('Cache-Control: no-store').sendFile('interfaces.html', {
             root: __dirname + '/../../../../views'
         });
     }

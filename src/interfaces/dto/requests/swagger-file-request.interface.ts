@@ -1,3 +1,3 @@
-export interface ISwaggerFileRequestDTO{
+export interface ISwaggerFileRequestDTO {
     swaggerFileName: string;
 }

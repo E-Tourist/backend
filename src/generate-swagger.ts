@@ -1,4 +1,4 @@
-import { SwaggerGenerator } from '@common/services/swagger-generator';
+import { SwaggerGenerator } from '@common/services/common/swagger-generator';
 import swaggerDocument from './base-swagger.json';
 import fs from 'fs';
 import { join } from 'path';
